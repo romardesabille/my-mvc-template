@@ -36,8 +36,14 @@ class Router{
 //        /*
 //         * end
 //         */
-        $uri = $this->base_folder().'/'.ltrim($uri);
-        $uri = rtrim($uri, '/');
+        if($uri === ''){
+            $uri = '';
+        }
+        if($this->base_folder() !== false){
+            $uri = $this->base_folder().'/'.ltrim($uri);
+            $uri = rtrim($uri, '/');
+        }
+
         $this->routes['GET'][$uri] = $controller;
     }
 
@@ -50,8 +56,13 @@ class Router{
 //         * end
 //         */
 //        $uri = rtrim($uri, '/');
-        $uri = $this->base_folder().'/'.ltrim($uri);
-        $uri = rtrim($uri, '/');
+        if($uri === ''){
+            $uri = '';
+        }
+        if($this->base_folder() !== false){
+            $uri = $this->base_folder().'/'.ltrim($uri);
+            $uri = rtrim($uri, '/');
+        }
         $this->routes['POST'][$uri] = $controller;
     }
 

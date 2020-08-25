@@ -28,25 +28,39 @@ class Router{
     }
 
     public function get($uri, $controller){
-        $uri = $this->base_folder() . '/' . $uri;
-
+//        /*
+//         * Remove this code when no folder when deployed
+//         */
+//        $uri = $this->base_path().'/'. ltrim($uri, '/');
+//        $uri = rtrim($uri, '/');
+//        /*
+//         * end
+//         */
+        $uri = $this->base_folder().'/'.ltrim($uri);
+        $uri = rtrim($uri, '/');
         $this->routes['GET'][$uri] = $controller;
     }
 
     public function post($uri, $controller){
-        $uri = $this->base_folder() . '/' . $uri;
-
+//        /*
+//         * Remove this code when no folder when deployed
+//         */
+//        $uri = $this->base_path().'/'. ltrim($uri, '/');
+//        /*
+//         * end
+//         */
+//        $uri = rtrim($uri, '/');
+        $uri = $this->base_folder().'/'.ltrim($uri);
+        $uri = rtrim($uri, '/');
         $this->routes['POST'][$uri] = $controller;
     }
 
     /*
      * Get Root Folder
-     * Todo delete later
      */
     private function base_path(){
         $folder = explode(DS, ROOT_DIR);
         $uri = $folder[count($folder)-2];
-
         return $uri;
     }
 

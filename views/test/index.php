@@ -1,7 +1,7 @@
 
 <h1>Testing submitting data with tokens and <br/> posting data with ajax request using jquery</h1>
 <?php $token = Token::generate() ?>
-<?php echo '<strong>Your token: </strong>' . $token ?>
+<p><?php echo '<strong>Your token: </strong>' . $token ?></p>
 <br/>
 <strong><?php flash_message() ?></strong>
 <form action="test/create" method="post" class="basic-data">
